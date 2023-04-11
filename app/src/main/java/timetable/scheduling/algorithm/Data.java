@@ -144,10 +144,10 @@ public class Data {
         groups = Arrays.asList(
                 group201,
                 group202,
-                group203
-//                group204,
-//                group205,
-//                group206,
+                group203,
+                group204,
+                group205,
+                group206
 //                group207
 //                group208,
 //                group209,

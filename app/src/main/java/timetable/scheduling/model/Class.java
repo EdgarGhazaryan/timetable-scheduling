@@ -87,9 +87,11 @@ public class Class implements Cloneable {
     @Override
     public String toString() {
         return "[" +
-                group.getName() +
+                (group != null ? group.getName() : "") +
                 "," +
                 course.getNumber() +
+                "," +
+                course.getGroupableWith() +
                 "," +
                 room.getNumber() +
                 "," +

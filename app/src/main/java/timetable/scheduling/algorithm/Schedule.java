@@ -69,6 +69,7 @@ public class Schedule {
                     newClass.setInstructor(instructor);
 
                     course.getGroupableWith().forEach(group -> {
+                        System.out.println("newClass: " + newClass);
                         Class groupClass = newClass.clone();
                         groupClass.setId(classNumb++);
                         groupClass.setGroup(group);
@@ -98,7 +99,18 @@ public class Schedule {
                 numberOfConflict++;
 
             classes.stream().filter(y -> classes.indexOf(y) > classes.indexOf(x)).forEach(y -> {
+                if (!x.getCourse().getGroupableWith().isEmpty() && !y.getCourse().getGroupableWith().isEmpty() &&
+                        x.getCourse().getNumber().equals(y.getCourse().getNumber()) &&
+                        (x.getMeetingTime() != y.getMeetingTime() || x.getRoom() != y.getRoom())
+                ) {
+                    numberOfConflict++;
+                }
+
                 if (x.getMeetingTime() == y.getMeetingTime() && x.getId() != y.getId()) {
+                    if (x.getCourse().getNumber().equals(y.getCourse().getNumber())) {
+                        return;
+                    }
+
                     if (x.getRoom().getNumber().equals(y.getRoom().getNumber())) {
                         System.out.println("CONFLICT ROOM: " + x + " " + y);
                         numberOfConflict++;
