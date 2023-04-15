@@ -20,7 +20,7 @@ public class Data {
     }
 
     private Data init() {
-        rooms = Arrays.asList(
+        rooms = List.of(
                 new Room("101", 55),
                 new Room("102", 55),
                 new Room("103", 55),
@@ -46,7 +46,7 @@ public class Data {
                 new Room("211", 55)
         );
 
-        meetingTimes = Arrays.asList(
+        meetingTimes = List.of(
                 new MeetingTime("MON-1", "MON 09:30 - 10:55"),
                 new MeetingTime("MON-2", "MON 11:05 - 12:30"),
                 new MeetingTime("MON-3", "MON 12:50 - 14:15"),
@@ -66,115 +66,100 @@ public class Data {
                 new MeetingTime("FRI-3", "FRI 12:50 - 14:15")
         );
 
-        Instructor kirakosyan = new Instructor("I1", "Կիրակոսյան");
-        Instructor suqiasyan = new Instructor("I2", "Սուքիասյան");
-        Instructor tonoyan = new Instructor("I3", "Տոնոյան");
-        Instructor arabyan = new Instructor("I4", "Արաբյան");
-        Instructor hakobyanH = new Instructor("I5", "Հակոբյան Հ.");
-        Instructor petrosyan = new Instructor("I6", "Պետրոսյան");
-        Instructor mkhitaryan = new Instructor("I7", "Մխիթարյան");
-        Instructor hayrapetyan = new Instructor("I8", "Հայրապետյան");
-        Instructor avagyan = new Instructor("I9", "Ավագյան");
-        Instructor grigoryan = new Instructor("I10", "Գրիգորյան");
-        Instructor serobyan = new Instructor("I11", "Սերոբյան");
-        Instructor manukyan = new Instructor("I12", "Մանուկյան");
-        Instructor nersisyan = new Instructor("I13", "Ներսիսյան");
-        Instructor araqelyan = new Instructor("I14", "Առաքելյան");
-        Instructor hakobyanS = new Instructor("I15", "Հակոբյան Ս.");
-        Instructor vardanyan = new Instructor("I16", "Վարդանյան");
-        Instructor miqayelyan = new Instructor("I17", "Միքայելյան");
-        Instructor andreasyan = new Instructor("I18", "Անդրեասյան");
-        Instructor xachatryan = new Instructor("I19", "Խաչատրյան");
-        Instructor voskanyan = new Instructor("I20", "Ոսկանյան");
-        Instructor martirosyan = new Instructor("I21", "Մարտիրոսյան");
-        Instructor ghazaryan = new Instructor("I22", "Ղազարյան");
-        Instructor eghiazaryan = new Instructor("I23", "Եղիազարյան");
-        Instructor gabrielyan = new Instructor("I24", "Գաբրիելյան");
-        Instructor falakyan = new Instructor("I25", "Ֆալակյան");
-        Instructor muradyan = new Instructor("I26", "Մուրադյան");
-        Instructor tutxalyan = new Instructor("I27", "Թութխալյան");
-        Instructor sargsyan = new Instructor("I28", "Սարգսյան");
-        Instructor bolibekyan = new Instructor("I29", "Բոլիբեկյան");
-        Instructor aslam = new Instructor("I30", "Ասլամաջյան");
-        instructors = Arrays.asList(
-                kirakosyan,
-                suqiasyan,
-                tonoyan,
-                arabyan,
+        Instructor hovhannisyanA = new Instructor("I1", "Հովհաննիստան Ա.");
+        Instructor danoyanE = new Instructor("I2", "Դանոյան Է.");
+        Instructor movsisyanH = new Instructor("I3", "Մովսիսյան Հ.");
+        Instructor gasparyanH = new Instructor("I4", "Գասպարյան Հ.");
+        Instructor budaghyanL = new Instructor("I5", "Բուդաղյան Լ.");
+        Instructor chubaryanA = new Instructor("I6", "Չուբարյան Ա.");
+        Instructor gabrielyanV = new Instructor("I7", "Գաբրիելյան Վ.");
+        Instructor hovhannisyanZ = new Instructor("I8", "Հովհաննիսյան Զ.");
+        Instructor sahakyanS = new Instructor("I9", "Սահակյան Ս.");
+        Instructor bolibekyanH = new Instructor("I10", "Բոլիբեկյան Հ.");
+        Instructor galstyanK = new Instructor("I11", "Գալստյան Կ.");
+        Instructor hakobyanH = new Instructor("I12", "Հակոբյան Հ.");
+        Instructor araqelyanA = new Instructor("I13", "Առաքելյան Ա.");
+        Instructor smbatyanX = new Instructor("I14", "Սմբատյան Խ.");
+        Instructor toroyanS = new Instructor("I15", "Թորոյան Ս.");
+        Instructor manukyanS = new Instructor("I16", "Մանուկյան Ս.");
+        Instructor dumanyanV = new Instructor("I17", "Դումանյան Վ.");
+        Instructor dashtoyanL = new Instructor("I18", "Դաշտոյան Լ.");
+        Instructor tamazyanH = new Instructor("I19", "Թամազյան Հ.");
+        Instructor arabyanM = new Instructor("I20", "Արաբյան Մ.");
+        instructors = List.of(
+                hovhannisyanA,
+                danoyanE,
+                movsisyanH,
+                gasparyanH,
+                budaghyanL,
+                chubaryanA,
+                gabrielyanV,
+                hovhannisyanZ,
+                sahakyanS,
+                bolibekyanH,
+                galstyanK,
                 hakobyanH,
-                petrosyan,
-                mkhitaryan,
-                hayrapetyan,
-                avagyan,
-                grigoryan,
-                serobyan,
-                manukyan,
-                nersisyan,
-                araqelyan,
-                hakobyanS,
-                vardanyan,
-                miqayelyan,
-                andreasyan,
-                xachatryan,
-                voskanyan,
-                martirosyan,
-                ghazaryan,
-                eghiazaryan,
-                gabrielyan,
-                falakyan,
-                muradyan,
-                tutxalyan,
-                sargsyan,
-                aslam,
-                bolibekyan
+                araqelyanA,
+                smbatyanX,
+                toroyanS,
+                manukyanS,
+                dumanyanV,
+                dashtoyanL,
+                tamazyanH,
+                arabyanM
         );
 
-        Group group201 = new Group( "201", 1, 25);
-        Group group202 = new Group( "202", 1, 26);
-        Group group203 = new Group( "203", 1, 27);
-        Group group204 = new Group( "204", 1, 28);
-        Group group205 = new Group( "205", 1, 28);
-        Group group206 = new Group( "206", 1, 28);
-        Group group207 = new Group( "207", 1, 28);
-        Group group208 = new Group( "208", 1, 28);
-        Group group209 = new Group( "209", 1, 28);
-        Group group210 = new Group( "210", 1, 28);
-        Group group211 = new Group( "211", 1, 28);
-        Group group212 = new Group( "212", 1, 28);
-        groups = Arrays.asList(
-                group201,
-                group202,
-                group203,
-                group204,
-                group205,
-                group206
-//                group207
-//                group208,
-//                group209,
-//                group210,
-//                group211,
-//                group212
+        Group group901 = new Group( "901", 1, 25);
+        Group group902 = new Group( "902", 1, 26);
+        Group group903 = new Group( "903", 1, 27);
+        Group group904 = new Group( "904", 1, 28);
+        Group group905 = new Group( "905", 1, 28);
+        Group group906 = new Group( "906", 1, 28);
+        Group group907 = new Group( "907", 1, 28);
+        Group group908 = new Group( "908", 1, 28);
+        Group group909 = new Group( "909", 1, 28);
+        groups = List.of(
+                group901,
+                group902,
+                group903,
+                group904,
+                group905,
+                group906,
+                group907,
+                group908,
+                group909
         );
 
         groups.forEach(group -> {
-            Course course1 = new Course("C1", "ԷՀՄ", new ArrayList<>(Arrays.asList(manukyan, araqelyan, hakobyanS, andreasyan, martirosyan, tutxalyan)), group, 1);
-            Course course2 = new Course("C2", "Մաթ Անալիզ", new ArrayList<>(Arrays.asList(arabyan, hakobyanH, vardanyan, miqayelyan, voskanyan)), group, 1);
-            Course course3 = new Course("C3", "Անալիտիկ", new ArrayList<>(Arrays.asList(serobyan, gabrielyan, sargsyan, bolibekyan)), group, 1);
-            Course course4 = new Course("C4", "Դիսկրետ", new ArrayList<>(List.of(petrosyan, xachatryan, eghiazaryan, ghazaryan, aslam)), group, 1);
-            Course course5 = new Course("C5", "Լեզու", new ArrayList<>(Arrays.asList(kirakosyan, suqiasyan, tonoyan, nersisyan, falakyan)), group, 1);
-//            Course course6 = new Course("C6", "Անգլերեն", new ArrayList<>(Arrays.asList(mkhitaryan, hayrapetyan, avagyan, grigoryan, muradyan)), group, 1);
-            courses.addAll(Arrays.asList(course1, course2, course3, course4, course5));
+            Course course1 = new Course("C1", "Մաթֆիզ - գործնական", List.of(hovhannisyanA, hovhannisyanZ, toroyanS, arabyanM), group, 2);
+            Course course2 = new Course("C2", "Թվային մեթոդներ - գործնական", List.of(danoyanE, sahakyanS, manukyanS), group, 1);
+            Course course3 = new Course("C3", "Մաթ տրամաբանություն - գործնական", List.of(movsisyanH, smbatyanX, dashtoyanL, tamazyanH), group, 1);
+            Course course4 = new Course("C4", "Տվյալների հենքեր - գործնական", List.of(budaghyanL, galstyanK), group, 1);
+            courses.addAll(List.of(course1, course2, course3, course4));
         });
-        Course course7 = new Course("C6", "Անգլերեն", new ArrayList<>(Arrays.asList(mkhitaryan, hayrapetyan, avagyan, grigoryan, muradyan)), null, 1, Arrays.asList(group201, group202, group203));
-        courses.add(course7);
+
+        List.of(
+                List.of(group901, group902, group903),
+                List.of(group904, group905, group906),
+                List.of(group907, group908, group909)
+        ).forEach(list -> {
+            courses.addAll(List.of(
+//                new Course("C6", "Թվային մեթոդներ - դասախոսություն", List.of(danoyanE, sahakyanS, manukyanS), null, 2, list),
+//                new Course("C7", "Կոմպյուտերային ցանցեր - դասախոսություն", List.of(gasparyanH), null, 1, list),
+//                new Course("C8", "Տվյալների հենքեր - դասախոսություն", List.of(budaghyanL, araqelyanA), null, 1, list)
+//                new Course("C9", "Մաթֆիզ - դասախոսություն", List.of(hovhannisyanA, hovhannisyanZ, dumanyanV), null, 2, list),
+//                new Course("C10", "Մաթ տրամաբանություն - դասախոսություն", List.of(chubaryanA, bolibekyanH, dashtoyanL), null, 1, list),
+//                new Course("C11", "Կոմբինատոր ալգորիթմներ - դասախոսություն", List.of(gabrielyanV, hakobyanH), null, 2, list)
+            ));
+        });
 
         System.out.println("coursescourses " + courses);
 
-//        departments = Arrays.asList(
-//                new Department("Անալիզ", new ArrayList<>(Arrays.asList(course3, course4))),
-//                new Department("Դիսկրետ", new ArrayList<>(Arrays.asList(course5, course6))),
-//                new Department("Ծրագրավորում", new ArrayList<>(Arrays.asList(course1, course3))),
-//                new Department("Լեզուներ", new ArrayList<>(Arrays.asList(course7)))
+//        departments = List.of(
+//                new Department("Անալիզ", new ArrayList<>(List.of(course3, course4))),
+//                new Department("Դիսկրետ", new ArrayList<>(List.of(course5, course6))),
+//                new Department("Ծրագրավորում", new ArrayList<>(List.of(course1, course3))),
+//                new Department("Լեզուներ", new ArrayList<>(List.of(course7)))
 //        );
 //        departments.forEach(x -> numberOfClasses += x.getCourses().size());
 

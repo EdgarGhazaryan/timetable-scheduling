@@ -37,10 +37,6 @@ public class Group {
 
     @Override
     public String toString() {
-        return "Group{" +
-                "year=" + year +
-                ", name=" + name +
-                ", studentsCount=" + studentsCount +
-                '}';
+        return "Group: " + name;
     }
 }

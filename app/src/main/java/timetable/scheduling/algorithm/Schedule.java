@@ -69,7 +69,6 @@ public class Schedule {
                     newClass.setInstructor(instructor);
 
                     course.getGroupableWith().forEach(group -> {
-                        System.out.println("newClass: " + newClass);
                         Class groupClass = newClass.clone();
                         groupClass.setId(classNumb++);
                         groupClass.setGroup(group);
@@ -103,6 +102,7 @@ public class Schedule {
                         x.getCourse().getNumber().equals(y.getCourse().getNumber()) &&
                         (x.getMeetingTime() != y.getMeetingTime() || x.getRoom() != y.getRoom())
                 ) {
+                    System.out.println("CONFLICT LEKCIA: " + x + " " + y);
                     numberOfConflict++;
                 }
 
