@@ -1,5 +1,8 @@
 package timetable.scheduling.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Class implements Cloneable {
     private int id;
 //    private Department department;
@@ -8,8 +11,14 @@ public class Class implements Cloneable {
     private MeetingTime meetingTime;
     private Room room;
     private Group group;
+    private List<Group> groupableWith = new ArrayList<>();
 
     public Class(Course course) {
+        this.course = course;
+    }
+
+    public Class(int id, Course course) {
+        this.id = id;
         this.course = course;
     }
 
@@ -19,13 +28,14 @@ public class Class implements Cloneable {
         this.group = group;
     }
 
-    public Class(int id, Course course, Instructor instructor, MeetingTime meetingTime, Room room, Group group) {
+    public Class(int id, Course course, Instructor instructor, MeetingTime meetingTime, Room room, Group group, List<Group> groupableWith) {
         this.id = id;
         this.course = course;
         this.instructor = instructor;
         this.meetingTime = meetingTime;
         this.room = room;
         this.group = group;
+        this.groupableWith = groupableWith;
     }
 
     public int getId() {
@@ -84,10 +94,18 @@ public class Class implements Cloneable {
         this.group = group;
     }
 
+    public List<Group> getGroupableWith() {
+        return groupableWith;
+    }
+
+    public void setGroupableWith(List<Group> groupableWith) {
+        this.groupableWith = groupableWith;
+    }
+
     @Override
     public String toString() {
         return "[" +
-                (group != null ? group.getName() : "") +
+                (group != null ? group.getName() : groupableWith) +
                 "," +
                 course.getNumber() +
                 "," +
@@ -103,7 +121,6 @@ public class Class implements Cloneable {
 
     @Override
     public Class clone() {
-        Class clone = new Class(id, course, instructor, meetingTime, room, group);
-        return clone;
+        return new Class(id, course, instructor, meetingTime, room, group, groupableWith);
     }
 }

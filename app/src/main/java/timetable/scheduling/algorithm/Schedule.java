@@ -1,13 +1,13 @@
 package timetable.scheduling.algorithm;
 
 import timetable.scheduling.model.Class;
+import timetable.scheduling.model.Group;
 import timetable.scheduling.model.Instructor;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.security.InvalidParameterException;
+import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.stream.Collectors;
 
 public class Schedule {
     private List<Class> classes;
@@ -31,7 +31,7 @@ public class Schedule {
 //                return;
 //            }
 
-            if (course.getGroup() != null) {
+//            if (course.getGroup() != null) {
                 AtomicInteger countPerWeek = new AtomicInteger(course.getCountPerWeek());
                 Instructor instructor = course.getInstructors().get((int) (course.getInstructors().size() * Math.random()));
 //            if (!course.getGroupableWith().isEmpty()) {
@@ -48,35 +48,44 @@ public class Schedule {
 //                });
 //            }
                 while (countPerWeek.getAndDecrement() != 0) {
-                    Class newClass = new Class(classNumb++, course, course.getGroup());
+                    Class newClass = new Class(classNumb++, course);
                     newClass.setMeetingTime(data.getMeetingTimes().get((int) (data.getMeetingTimes().size() * Math.random())));
                     newClass.setRoom(data.getRooms().get((int) (data.getRooms().size() * Math.random())));
                     newClass.setInstructor(instructor);
+
+                    if (course.getGroup() != null) {
+                        newClass.setGroup(course.getGroup());
+                    } else if (course.getGroupableWith() != null && !course.getGroupableWith().isEmpty()) {
+                        newClass.setGroupableWith(course.getGroupableWith());
+                    } else {
+                        throw new InvalidParameterException("Either group or groupableWith should be present");
+                    }
+
                     classes.add(newClass);
                 }
 
                 return;
-            }
+//            }
 
-            if (!course.getGroupableWith().isEmpty()) {
-                AtomicInteger countPerWeek = new AtomicInteger(course.getCountPerWeek());
-                Instructor instructor = course.getInstructors().get((int) (course.getInstructors().size() * Math.random()));
-
-                while (countPerWeek.getAndDecrement() != 0) {
-                    Class newClass = new Class(course);
-                    newClass.setMeetingTime(data.getMeetingTimes().get((int) (data.getMeetingTimes().size() * Math.random())));
-                    newClass.setRoom(data.getRooms().get((int) (data.getRooms().size() * Math.random())));
-                    newClass.setInstructor(instructor);
-
-                    course.getGroupableWith().forEach(group -> {
-                        Class groupClass = newClass.clone();
-                        groupClass.setId(classNumb++);
-                        groupClass.setGroup(group);
-
-                        classes.add(groupClass);
-                    });
-                }
-            }
+//            if (!course.getGroupableWith().isEmpty()) {
+//                AtomicInteger countPerWeek = new AtomicInteger(course.getCountPerWeek());
+//                Instructor instructor = course.getInstructors().get((int) (course.getInstructors().size() * Math.random()));
+//
+//                while (countPerWeek.getAndDecrement() != 0) {
+//                    Class newClass = new Class(course);
+//                    newClass.setMeetingTime(data.getMeetingTimes().get((int) (data.getMeetingTimes().size() * Math.random())));
+//                    newClass.setRoom(data.getRooms().get((int) (data.getRooms().size() * Math.random())));
+//                    newClass.setInstructor(instructor);
+//
+//                    course.getGroupableWith().forEach(group -> {
+//                        Class groupClass = newClass.clone();
+//                        groupClass.setId(classNumb++);
+//                        groupClass.setGroup(group);
+//
+//                        classes.add(groupClass);
+//                    });
+//                }
+//            }
 //            coursesMap.put(key, true);
         });
 
@@ -94,17 +103,26 @@ public class Schedule {
     public double calculateFitness() {
         numberOfConflict = 0;
         classes.forEach(x -> {
-            if (x.getRoom().getSeatingCapacity() < x.getGroup().getStudentsCount())
-                numberOfConflict++;
+//            if (x.getRoom().getSeatingCapacity() < x.getGroup().getStudentsCount())
+//                numberOfConflict++;
 
-            classes.stream().filter(y -> classes.indexOf(y) > classes.indexOf(x)).forEach(y -> {
-                if (!x.getCourse().getGroupableWith().isEmpty() && !y.getCourse().getGroupableWith().isEmpty() &&
-                        x.getCourse().getNumber().equals(y.getCourse().getNumber()) &&
-                        (x.getMeetingTime() != y.getMeetingTime() || x.getRoom() != y.getRoom())
-                ) {
-                    System.out.println("CONFLICT LEKCIA: " + x + " " + y);
+            if (!x.getGroupableWith().isEmpty()) {
+                long studentsSumCount = x.getGroupableWith().stream().collect(Collectors.summarizingInt(Group::getStudentsCount)).getSum();
+                if (x.getRoom().getSeatingCapacity() < studentsSumCount) {
                     numberOfConflict++;
                 }
+            } else if (x.getRoom().getSeatingCapacity() < x.getGroup().getStudentsCount()) {
+                numberOfConflict++;
+            }
+
+            classes.stream().filter(y -> classes.indexOf(y) > classes.indexOf(x)).forEach(y -> {
+//                if (!x.getCourse().getGroupableWith().isEmpty() && !y.getCourse().getGroupableWith().isEmpty() &&
+//                        x.getCourse().getNumber().equals(y.getCourse().getNumber()) &&
+//                        (x.getMeetingTime() != y.getMeetingTime() || x.getRoom() != y.getRoom())
+//                ) {
+//                    System.out.println("CONFLICT LEKCIA: " + x + " " + y);
+//                    numberOfConflict++;
+//                }
 
                 if (x.getMeetingTime() == y.getMeetingTime() && x.getId() != y.getId()) {
                     if (x.getCourse().getNumber().equals(y.getCourse().getNumber())) {
@@ -112,18 +130,25 @@ public class Schedule {
                     }
 
                     if (x.getRoom().getNumber().equals(y.getRoom().getNumber())) {
-                        System.out.println("CONFLICT ROOM: " + x + " " + y);
+//                        System.out.println("CONFLICT ROOM: " + x + " " + y);
                         numberOfConflict++;
                     }
 
                     if (x.getInstructor().getId().equals(y.getInstructor().getId())) {
-                        System.out.println("CONFLICT INSTR: " + x + " " + y);
+//                        System.out.println("CONFLICT INSTR: " + x + " " + y);
                         numberOfConflict++;
                     }
 
-                    if (x.getGroup().getName().equals(y.getGroup().getName())) {
-                        System.out.println("CONFLICT GROUP: " + x + " " + y);
+                    if (x.getGroup() != null && y.getGroup() != null && x.getGroup().getName().equals(y.getGroup().getName())) { // TODO fix here check
+//                        System.out.println("CONFLICT GROUP: " + x + " " + y);
                         numberOfConflict++;
+                    } else if (!x.getGroupableWith().isEmpty() && y.getGroup() != null) {
+                        x.getGroupableWith().forEach(group -> {
+                            if (group.getName().equals(y.getGroup().getName())) {
+//                                System.out.println("CONFLICT GROUPABLE: " + x + " " + y);
+                                numberOfConflict++;
+                            }
+                        });
                     }
                 }
 

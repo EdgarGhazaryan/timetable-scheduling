@@ -10,6 +10,7 @@ import timetable.scheduling.model.Class;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import static timetable.scheduling.algorithm.GeneticAlgorithm.POPULATION_SIZE;
 
@@ -69,10 +70,11 @@ public class App {
             MeetingTime meetingTime = data.getMeetingTimes().stream().filter(m -> m.getId().equals(x.getMeetingTime().getId())).findFirst().get();
 
             System.out.print(String.format("   %1$02d  ", classNumb) + "  |  ");
-            System.out.print(String.format("%1$4s  ", x.getGroup().getName()) + "  |  ");
+            System.out.print(String.format("%1$4s  ", x.getGroup() != null ? x.getGroup().getName() : x.getGroupableWith()) + "  |  ");
             System.out.print(String.format("%1$21s  ", course.getName() +
                     " (" + course.getNumber() + ", " +
-                    x.getGroup().getStudentsCount()) + ")       | ");
+                    (x.getGroup() != null ? x.getGroup().getStudentsCount() : x.getGroupableWith().stream().collect(Collectors.summarizingInt(Group::getStudentsCount)).getSum())
+            ) + ")       | ");
             System.out.print(String.format("%1$10s  ", room.getNumber() +
                     " (" + room.getSeatingCapacity()) + ")     | ");
             System.out.print(String.format("%1$15s  ", instructor.getName() +

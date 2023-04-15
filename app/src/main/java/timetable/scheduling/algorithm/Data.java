@@ -21,29 +21,29 @@ public class Data {
 
     private Data init() {
         rooms = List.of(
-                new Room("101", 55),
-                new Room("102", 55),
-                new Room("103", 55),
-                new Room("104", 55),
-                new Room("105", 55),
-                new Room("106", 55),
-                new Room("107", 55),
-                new Room("108", 55),
-                new Room("109", 55),
-                new Room("110", 55),
-                new Room("111", 55),
-                new Room("112", 55),
-                new Room("201", 55),
-                new Room("202", 55),
-                new Room("203", 55),
-                new Room("204", 55),
-                new Room("205", 55),
-                new Room("206", 55),
-                new Room("207", 55),
-                new Room("208", 55),
-                new Room("209", 55),
-                new Room("210", 55),
-                new Room("211", 55)
+                new Room("101", 155),
+                new Room("102", 155),
+                new Room("103", 155),
+                new Room("104", 155),
+                new Room("105", 155),
+                new Room("106", 155),
+                new Room("107", 155),
+                new Room("108", 155),
+                new Room("109", 155),
+                new Room("110", 155),
+                new Room("111", 155),
+                new Room("112", 155),
+                new Room("201", 155),
+                new Room("202", 155),
+                new Room("203", 155),
+                new Room("204", 155),
+                new Room("205", 155),
+                new Room("206", 155),
+                new Room("207", 155),
+                new Room("208", 155),
+                new Room("209", 155),
+                new Room("210", 155),
+                new Room("211", 155)
         );
 
         meetingTimes = List.of(
@@ -54,16 +54,19 @@ public class Data {
                 new MeetingTime("TUE-1", "TUE 09:30 - 10:55"),
                 new MeetingTime("TUE-2", "TUE 11:05 - 12:30"),
                 new MeetingTime("TUE-3", "TUE 12:50 - 14:15"),
+                new MeetingTime("TUE-4", "TUE 14:30 - 15:55"),
                 new MeetingTime("WED-1", "WED 09:30 - 10:55"),
                 new MeetingTime("WED-2", "WED 11:05 - 12:30"),
                 new MeetingTime("WED-3", "WED 12:50 - 14:15"),
+                new MeetingTime("WED-4", "WED 14:30 - 15:55"),
                 new MeetingTime("THU-1", "THU 09:30 - 10:55"),
                 new MeetingTime("THU-2", "THU 11:05 - 12:30"),
                 new MeetingTime("THU-3", "THU 12:50 - 14:15"),
                 new MeetingTime("THU-4", "THU 14:30 - 15:55"),
                 new MeetingTime("FRI-1", "FRI 09:30 - 10:55"),
                 new MeetingTime("FRI-2", "FRI 11:05 - 12:30"),
-                new MeetingTime("FRI-3", "FRI 12:50 - 14:15")
+                new MeetingTime("FRI-3", "FRI 12:50 - 14:15"),
+                new MeetingTime("FRI-4", "FRI 14:30 - 15:55")
         );
 
         Instructor hovhannisyanA = new Instructor("I1", "Հովհաննիստան Ա.");
@@ -144,12 +147,12 @@ public class Data {
                 List.of(group907, group908, group909)
         ).forEach(list -> {
             courses.addAll(List.of(
-//                new Course("C6", "Թվային մեթոդներ - դասախոսություն", List.of(danoyanE, sahakyanS, manukyanS), null, 2, list),
-//                new Course("C7", "Կոմպյուտերային ցանցեր - դասախոսություն", List.of(gasparyanH), null, 1, list),
-//                new Course("C8", "Տվյալների հենքեր - դասախոսություն", List.of(budaghyanL, araqelyanA), null, 1, list)
-//                new Course("C9", "Մաթֆիզ - դասախոսություն", List.of(hovhannisyanA, hovhannisyanZ, dumanyanV), null, 2, list),
-//                new Course("C10", "Մաթ տրամաբանություն - դասախոսություն", List.of(chubaryanA, bolibekyanH, dashtoyanL), null, 1, list),
-//                new Course("C11", "Կոմբինատոր ալգորիթմներ - դասախոսություն", List.of(gabrielyanV, hakobyanH), null, 2, list)
+                new Course("C6", "Թվային մեթոդներ - դասախոսություն", List.of(danoyanE, sahakyanS, manukyanS), null, 2, list),
+                new Course("C7", "Կոմպյուտերային ցանցեր - դասախոսություն", List.of(gasparyanH), null, 1, list),
+                new Course("C8", "Տվյալների հենքեր - դասախոսություն", List.of(budaghyanL, araqelyanA), null, 1, list),
+                new Course("C9", "Մաթֆիզ - դասախոսություն", List.of(hovhannisyanA, hovhannisyanZ, dumanyanV), null, 2, list),
+                new Course("C10", "Մաթ տրամաբանություն - դասախոսություն", List.of(chubaryanA, bolibekyanH, dashtoyanL), null, 1, list),
+                new Course("C11", "Կոմբինատոր ալգորիթմներ - դասախոսություն", List.of(gabrielyanV, hakobyanH), null, 2, list)
             ));
         });
 
