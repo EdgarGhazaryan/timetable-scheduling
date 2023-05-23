@@ -7,9 +7,7 @@ import timetable.scheduling.algorithm.Schedule;
 import timetable.scheduling.model.*;
 import timetable.scheduling.model.Class;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.stream.Collectors;
 
 import static timetable.scheduling.algorithm.GeneticAlgorithm.POPULATION_SIZE;
@@ -32,7 +30,7 @@ public class App {
             System.out.println("       " + scheduleNumb++ +
                     "            | " + schedule + " | " +
                     schedule.getFitness() +
-                    "  |  " + schedule.getNumberOfConflict());
+                    "  |  " + schedule.getNumberOfConflicts());
         });
 
         printAsTable(population.getSchedules().get(0), generationNumber);
@@ -46,10 +44,9 @@ public class App {
             scheduleNumb = 0;
             population.getSchedules().forEach(schedule -> {
                 System.out.println("           " + scheduleNumb++ + "         | " + schedule + " | " +
-                        String.format("%.5f", schedule.getFitness()) + " | " + schedule.getNumberOfConflict());
+                        String.format("%.5f", schedule.getFitness()) + " | " + schedule.getNumberOfConflicts());
             });
             printAsTable(population.getSchedules().get(0), generationNumber);
-            System.out.println("FITNESSSS");
             population.getSchedules().get(0).calculateFitness();
 
             classNumb = 1;

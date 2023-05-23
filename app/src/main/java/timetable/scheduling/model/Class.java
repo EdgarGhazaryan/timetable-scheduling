@@ -5,7 +5,6 @@ import java.util.List;
 
 public class Class implements Cloneable {
     private int id;
-//    private Department department;
     private Course course;
     private Instructor instructor;
     private MeetingTime meetingTime;
@@ -109,7 +108,7 @@ public class Class implements Cloneable {
                 "," +
                 course.getNumber() +
                 "," +
-                course.getGroupableWith() +
+                groupableWith +
                 "," +
                 room.getNumber() +
                 "," +

@@ -33,6 +33,9 @@ public class Data {
                 new Room("110", 155),
                 new Room("111", 155),
                 new Room("112", 155),
+                new Room("113", 155),
+                new Room("114", 155),
+                new Room("115", 155),
                 new Room("201", 155),
                 new Room("202", 155),
                 new Room("203", 155),
@@ -43,33 +46,38 @@ public class Data {
                 new Room("208", 155),
                 new Room("209", 155),
                 new Room("210", 155),
-                new Room("211", 155)
+                new Room("211", 155),
+                new Room("212", 155),
+                new Room("213", 155),
+                new Room("214", 155),
+                new Room("215", 155),
+                new Room("216", 155)
         );
 
         meetingTimes = List.of(
-                new MeetingTime("MON-1", "MON 09:30 - 10:55"),
-                new MeetingTime("MON-2", "MON 11:05 - 12:30"),
-                new MeetingTime("MON-3", "MON 12:50 - 14:15"),
-                new MeetingTime("MON-4", "MON 14:30 - 15:55"),
-                new MeetingTime("TUE-1", "TUE 09:30 - 10:55"),
-                new MeetingTime("TUE-2", "TUE 11:05 - 12:30"),
-                new MeetingTime("TUE-3", "TUE 12:50 - 14:15"),
-                new MeetingTime("TUE-4", "TUE 14:30 - 15:55"),
-                new MeetingTime("WED-1", "WED 09:30 - 10:55"),
-                new MeetingTime("WED-2", "WED 11:05 - 12:30"),
-                new MeetingTime("WED-3", "WED 12:50 - 14:15"),
-                new MeetingTime("WED-4", "WED 14:30 - 15:55"),
-                new MeetingTime("THU-1", "THU 09:30 - 10:55"),
-                new MeetingTime("THU-2", "THU 11:05 - 12:30"),
-                new MeetingTime("THU-3", "THU 12:50 - 14:15"),
-                new MeetingTime("THU-4", "THU 14:30 - 15:55"),
-                new MeetingTime("FRI-1", "FRI 09:30 - 10:55"),
-                new MeetingTime("FRI-2", "FRI 11:05 - 12:30"),
-                new MeetingTime("FRI-3", "FRI 12:50 - 14:15"),
-                new MeetingTime("FRI-4", "FRI 14:30 - 15:55")
+                new MeetingTime("MON-1", "Երկուշաբթի 09:30 - 10:55"),
+                new MeetingTime("MON-2", "Երկուշաբթի 11:05 - 12:30"),
+                new MeetingTime("MON-3", "Երկուշաբթի 12:50 - 14:15"),
+                new MeetingTime("MON-4", "Երկուշաբթի 14:30 - 15:55"),
+                new MeetingTime("TUE-1", "Երեքշաբթի 09:30 - 10:55"),
+                new MeetingTime("TUE-2", "Երեքշաբթի 11:05 - 12:30"),
+                new MeetingTime("TUE-3", "Երեքշաբթի 12:50 - 14:15"),
+                new MeetingTime("TUE-4", "Երեքշաբթի 14:30 - 15:55"),
+                new MeetingTime("WED-1", "Չորեքշաբթի 09:30 - 10:55"),
+                new MeetingTime("WED-2", "Չորեքշաբթի 11:05 - 12:30"),
+                new MeetingTime("WED-3", "Չորեքշաբթի 12:50 - 14:15"),
+                new MeetingTime("WED-4", "Չորեքշաբթի 14:30 - 15:55"),
+                new MeetingTime("THU-1", "Հինգշաբթի 09:30 - 10:55"),
+                new MeetingTime("THU-2", "Հինգշաբթի 11:05 - 12:30"),
+                new MeetingTime("THU-3", "Հինգշաբթի 12:50 - 14:15"),
+                new MeetingTime("THU-4", "Հինգշաբթի 14:30 - 15:55"),
+                new MeetingTime("FRI-1", "Ուրբաթ 09:30 - 10:55"),
+                new MeetingTime("FRI-2", "Ուրբաթ 11:05 - 12:30"),
+                new MeetingTime("FRI-3", "Ուրբաթ 12:50 - 14:15"),
+                new MeetingTime("FRI-4", "Ուրբաթ 14:30 - 15:55")
         );
 
-        Instructor hovhannisyanA = new Instructor("I1", "Հովհաննիստան Ա.");
+        Instructor hovhannisyanA = new Instructor("I1", "Հովհաննիսյան Ա.");
         Instructor danoyanE = new Instructor("I2", "Դանոյան Է.");
         Instructor movsisyanH = new Instructor("I3", "Մովսիսյան Հ.");
         Instructor gasparyanH = new Instructor("I4", "Գասպարյան Հ.");
@@ -112,15 +120,15 @@ public class Data {
                 arabyanM
         );
 
-        Group group901 = new Group( "901", 1, 25);
-        Group group902 = new Group( "902", 1, 26);
-        Group group903 = new Group( "903", 1, 27);
-        Group group904 = new Group( "904", 1, 28);
-        Group group905 = new Group( "905", 1, 28);
-        Group group906 = new Group( "906", 1, 28);
-        Group group907 = new Group( "907", 1, 28);
-        Group group908 = new Group( "908", 1, 28);
-        Group group909 = new Group( "909", 1, 28);
+        Group group901 = new Group( "901", 1, 20);
+        Group group902 = new Group( "902", 1, 16);
+        Group group903 = new Group( "903", 1, 17);
+        Group group904 = new Group( "904", 1, 25);
+        Group group905 = new Group( "905", 1, 19);
+        Group group906 = new Group( "906", 1, 16);
+        Group group907 = new Group( "907", 1, 18);
+        Group group908 = new Group( "908", 1, 22);
+        Group group909 = new Group( "909", 1, 20);
         groups = List.of(
                 group901,
                 group902,
@@ -155,16 +163,6 @@ public class Data {
                 new Course("C11", "Կոմբինատոր ալգորիթմներ - դասախոսություն", List.of(gabrielyanV, hakobyanH), null, 2, list)
             ));
         });
-
-        System.out.println("coursescourses " + courses);
-
-//        departments = List.of(
-//                new Department("Անալիզ", new ArrayList<>(List.of(course3, course4))),
-//                new Department("Դիսկրետ", new ArrayList<>(List.of(course5, course6))),
-//                new Department("Ծրագրավորում", new ArrayList<>(List.of(course1, course3))),
-//                new Department("Լեզուներ", new ArrayList<>(List.of(course7)))
-//        );
-//        departments.forEach(x -> numberOfClasses += x.getCourses().size());
 
         return this;
     }
